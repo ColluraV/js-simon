@@ -6,7 +6,7 @@ const timeOver = new Date(`2023-07-14T09:30:0`).getTime();
 let now;
 btnActivate.addEventListener("click",function(){
  
-    const result = idInterval();
+    const result = timer();
 
     /*console.log(result)
     console.log(timeOver)*/
@@ -14,7 +14,7 @@ btnActivate.addEventListener("click",function(){
 })
 
 
-function idInterval (/*da_testare*/){
+function timer (){/*da_testare*/
     
    now = new Date().getTime(); 
     let countdown = timeOver - now;
