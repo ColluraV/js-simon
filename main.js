@@ -16,7 +16,7 @@ let now;
 //bottone START
 btnActivate.addEventListener("click", function () {
 
-//input data
+    //input data
 
     const iY = document.querySelector(`#YearSelect`).value;
     const iM = document.querySelector(`#MounthSelect`).value;
@@ -29,15 +29,15 @@ btnActivate.addEventListener("click", function () {
     console.log(iD)
     console.log(iH)
     console.log(iMin)
-  
-//dichiarazione scadenza
-    timeOver = new Date(iY,(iM - 1 ),iD,iH,iMin);
+
+    //dichiarazione scadenza
+    timeOver = new Date(iY, (iM - 1), iD, iH, iMin);
 
     console.log(timeOver)
- 
-    
-//Funzione Stampa     
-    setInterval(stampaHTML, function() {
+
+
+    //Funzione Stampa     
+    setInterval(stampaHTML, function () {
 
     }, 500);
 
@@ -48,13 +48,14 @@ function timer() {
 
     now = new Date().getTime();
     let countdown = timeOver - now;
+
     console.log(now);
     console.log(countdown);
     return countdown;
 
 }
 
-function stampaHTML(){
+function stampaHTML() {
     let result = timer();
 
     console.log(result);
@@ -62,11 +63,13 @@ function stampaHTML(){
 
     const seconds = Math.floor(result / 1000);
     const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
+    const hours = Math.floor((result % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const days = Math.floor(result / (1000 * 60 * 60 * 24));
 
     console.log(seconds);
     console.log(minutes);
     console.log(hours);
+    console.log(days)
 
-    risultato.innerHTML = `${hours} ore ${minutes % 60} minuti ${seconds % 60} secondi`;
+    risultato.innerHTML = `${days} giorni ${hours} ore ${minutes % 60} minuti ${seconds % 60} secondi`;
 }
