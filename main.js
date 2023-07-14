@@ -10,7 +10,7 @@ let varClock;
     //bottone START
 
 btnActivate.addEventListener("click", function () {
-    clearInterval(varClock)
+    clearInterval(varClock);
     //input data
 
     const iY = document.querySelector(`#YearSelect`).value;
@@ -19,17 +19,18 @@ btnActivate.addEventListener("click", function () {
     const iH = document.querySelector(`#input-ore`).value;
     const iMin = document.querySelector(`#input-minuti`).value;
 
-    console.log(iY)
-    console.log(iM)
-    console.log(iD)
-    console.log(iH)
-    console.log(iMin)
+    console.log(iY);
+    console.log(iM);
+    console.log(iD);
+    console.log(iH);
+    console.log(iMin);
 
     //dichiarazione scadenza
     timeOver = new Date(iY, (iM - 1), iD, iH, iMin);
 
-    console.log(timeOver)
+    console.log(timeOver);
 
+ 
 
     //Funzione intervallo + funzione Stampa     
     varClock = setInterval(stampaHTML, 1000);
@@ -62,7 +63,11 @@ function stampaHTML() {
     console.log(seconds);
     console.log(minutes);
     console.log(hours);
-    console.log(days)
+    console.log(days);
 
     risultato.innerHTML = `${days} giorni ${hours} ore ${minutes % 60} minuti ${seconds % 60} secondi`;
+
+    if (result<=0){
+        risultato.innerHTML = "Tempo Scaduto";
+    }
 }
