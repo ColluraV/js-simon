@@ -1,21 +1,16 @@
 const risultato = document.querySelector(`#risultato`);
 const btnActivate = document.querySelector(".conferma");
 
-const iY = document.querySelector(`#YearSelect`).value;
-const iM = document.querySelector(`#MounthSelect`).value;
-const iD = document.querySelector(`#DaySelect`).value;
-const iH = document.querySelector(`#input-ore`).value;
-const iMin = document.querySelector(`#input-minuti`).value;
-
-
 /*const timeOver = new Date(`2023-07-14T09:30:00`).getTime();*/
 
 let timeOver;
 let now;
+let varClock;
 
-//bottone START
+    //bottone START
+
 btnActivate.addEventListener("click", function () {
-
+    clearInterval(varClock)
     //input data
 
     const iY = document.querySelector(`#YearSelect`).value;
@@ -36,10 +31,8 @@ btnActivate.addEventListener("click", function () {
     console.log(timeOver)
 
 
-    //Funzione Stampa     
-    setInterval(stampaHTML, function () {
-
-    }, 500);
+    //Funzione intervallo + funzione Stampa     
+    varClock = setInterval(stampaHTML, 1000);
 
 })
 
@@ -54,7 +47,7 @@ function timer() {
     return countdown;
 
 }
-
+//stampa valori su documento
 function stampaHTML() {
     let result = timer();
 
